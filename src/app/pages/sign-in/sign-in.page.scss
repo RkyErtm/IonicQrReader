@@ -1,0 +1,118 @@
+ion-toolbar {
+    ion-title {
+        color: #c1bcb4;
+    }
+
+    ion-back-button {
+        color: var(--color-yellow) !important;
+    }
+}
+
+ion-content {
+    .labels {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0px;
+    }
+
+    ion-note {
+        color: var(--ion-color-danger);
+        font-size: 14px;
+        margin-top: 2px;
+    }
+
+
+    .welcome_lbl {
+        font-size: 24px;
+        font-family: "Poppins";
+        color: #c1bcb4;
+    }
+
+    .simp_lbl {
+        margin-top: 20px;
+        letter-spacing: 1.2;
+        color: #c1bcb4;
+    }
+
+    ion-item {
+        border: 1px solid #d5cfcb;
+        --background: #f7f7f7;
+        border-radius: 10px;
+        margin-bottom: 3px;
+        margin-top: 24px;
+
+        ion-input {
+            --padding-start: 10px;
+            font-family: "Poppins";
+            height: 50px;
+        }
+    }
+
+    .forgot {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        margin-bottom: 24px;
+
+        ion-label {
+            font-size: 14px;
+            color: var(--color-yellow) !important;
+        }
+
+        .toggle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            ion-label {
+                color: #c1bcb4;
+            }
+        }
+    }
+
+    .sign_in_lbl {
+        text-align: center;
+        margin-bottom: 16px;
+        justify-content: center;
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+        color: #c1bcb4;
+
+        span {
+            color: var(--color-yellow);
+        }
+    }
+
+    .or_lbl {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    ion-button {
+        margin-bottom: 16px;
+
+        ion-icon {
+            position: absolute;
+            left: 10px;
+        }
+    }
+
+    .block_btn {
+        --background: var(--color-yellow);
+
+    }
+
+    .fb_btn {
+        --background: var(--color-yellow);
+    }
+
+    .gp_btn {
+        --background: var(--color-yellow);
+    }
+}
+
+:host(.toggle-checked) .toggle-icon {
+    background: var(--track-background-checked);
+}

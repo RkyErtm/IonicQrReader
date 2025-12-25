@@ -1,0 +1,119 @@
+<ion-content class="ion-padding">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Geri" icon="caret-back" defaultHref="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+  <div class="labels">
+    <ion-label class="welcome_lbl">Hesap Oluştur</ion-label>
+
+    <ion-label class="simp_lbl">Ad, soyad, email gir veya
+      <span (click)="goBack()">giriş yap</span>
+    </ion-label>
+
+  </div>
+  <form [formGroup]="registerForm" (ngSubmit)="submitForm()" novalidate>
+
+    <ion-item lines="none">
+      <ion-icon name="person-outline" color="medium"></ion-icon>
+      <ion-input formControlName="firstName" type="text" placeholder="Ad"></ion-input>
+    </ion-item>
+    <div *ngIf="submitted && registerForm.get('firstName')?.hasError('required')" class="alert">
+      <ion-note>
+        Ad zorunludur
+      </ion-note>
+    </div>
+
+    <ion-item lines="none">
+      <ion-icon name="person-outline" color="medium"></ion-icon>
+      <ion-input formControlName="lastName" type="text" placeholder="Soyad"></ion-input>
+    </ion-item>
+    <div *ngIf="submitted && registerForm.get('lastName')?.hasError('required')" class="alert">
+      <ion-note>
+        Soyad zorunludur
+      </ion-note>
+    </div>
+
+    <ion-item lines="none">
+      <ion-icon name="mail-outline" color="medium"></ion-icon>
+      <ion-input formControlName="email" type="email" placeholder="E-posta"></ion-input>
+    </ion-item>
+    <div *ngIf="submitted && registerForm.get('email')?.hasError('required')" class="alert">
+      <ion-note>
+        E-posta zorunludur
+      </ion-note>
+    </div>
+
+    <ion-item lines="none">
+      <ion-icon name="call-outline" color="medium"></ion-icon>
+      <ion-input [maskito]="phoneMask" [maskitoElement]="maskPredicate" formControlName="phone" name="PHONE" type="tel"
+        placeholder="(999) 999-9999"></ion-input>
+    </ion-item>
+    <div *ngIf="(submitted || registerForm.get('phone')?.dirty) && registerForm.get('phone')?.errors">
+      <ion-note *ngIf="registerForm.get('phone')?.errors.required">
+        Telefon zorunludur
+      </ion-note>
+      <ion-note *ngIf="registerForm.get('phone')?.errors.minlength">
+        Minimum 10 karakter giriniz
+      </ion-note>
+    </div>
+
+    <ion-item lines="none">
+      <ion-icon name="male-female-outline" color="medium"></ion-icon>
+      <ion-select okText="Tamam" cancelText="İptal" placeholder="Cinsiyet" formControlName="genderId">
+        <ion-select-option *ngFor="let item of genders" [value]="item.id">
+          {{item.name}}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <div *ngIf="submitted && registerForm.get('genderId')?.hasError('required')" class="alert">
+      <ion-note>
+        Cinsiyet zorunludur
+      </ion-note>
+    </div>
+
+
+    <ion-item lines="none">
+      <ion-icon name="lock-open-outline" color="medium"></ion-icon>
+      <ion-input [type]="passwordFieldType" minlength="6" formControlName="password" type="password" placeholder="Şifre"
+        #passwordInput></ion-input>
+      <ion-icon slot="end" class="eye on" (click)="togglePasswordVisibility()" *ngIf="passwordFieldType === 'text'"
+        name="eye-outline" color="medium"></ion-icon>
+      <ion-icon slot="end" class="eye off" *ngIf="passwordFieldType === 'password'" (click)="togglePasswordVisibility()"
+        name="eye-off-outline" color="medium"></ion-icon>
+    </ion-item>
+    <div *ngIf="submitted" class="alert">
+      <ion-note *ngIf="submitted && registerForm.get('password')?.hasError('required')">
+        Şifre zorunludur
+      </ion-note>
+      <ion-note *ngIf="submitted && registerForm.get('password')?.hasError('minlength')">
+        En az 6 karakter giriniz
+      </ion-note>
+    </div>
+
+    <ion-item lines="none">
+      <ion-icon name="lock-open-outline" color="medium"></ion-icon>
+      <ion-input [type]="passwordFieldType" minlength="6" formControlName="confirmPassword" type="password"
+        placeholder="Şifre (tekrar)" #passwordInput></ion-input>
+      <!-- <ion-icon slot="end" class="eye on" (click)="togglePasswordVisibility()" *ngIf="passwordFieldType === 'text'"
+        name="eye-outline" color="medium"></ion-icon>
+      <ion-icon slot="end" class="eye off" *ngIf="passwordFieldType === 'password'" (click)="togglePasswordVisibility()"
+        name="eye-off-outline" color="medium"></ion-icon> -->
+    </ion-item>
+    <div *ngIf="submitted " class="alert">
+      <ion-note *ngIf="submitted && registerForm.get('confirmPassword')?.hasError('required')">
+        Şifre (tekrar) zorunludur
+      </ion-note>
+      <ion-note *ngIf="submitted && registerForm.get('confirmPassword')?.hasError('minlength')">
+        En az 6 karakter giriniz
+      </ion-note>
+    </div>
+
+
+    <ion-button type="submit" expand="block" mode="ios" class="block_btn">
+      Kayıt Ol
+    </ion-button>
+  </form>
+
+</ion-content>

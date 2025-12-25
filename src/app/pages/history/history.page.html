@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="quit()">
+        <ion-icon class="out-icon" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Geçmiş</ion-title>
+  </ion-toolbar>
+  <div class="container w3-animate-opacity" *ngIf="qrCodes.length>0">
+    <ion-list>
+      <ion-item lines="none" *ngFor="let item of qrCodes; let i = index">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="item?.file"></ion-img>
+        </ion-thumbnail>
+        <ion-label class="ion-text-wrap"> {{item?.title}} </ion-label>
+        <!-- <ion-button slot="end" fill="clear">
+          <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+        </ion-button> -->
+        <ion-button (click)="deleteCode(item?.id,i)" slot="end" fill="clear">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ng-container *ngIf="qrCodes?.length==0">
+    <div class="container no-content w3-animate-opacity">
+      <div class="no-basket">
+        <img src="assets/imgs/folder.png" alt="">
+        <ion-text class="no-basket-title">
+          Veri bulunamadı
+        </ion-text>
+      </div>
+    </div>
+  </ng-container>
+</ion-content>

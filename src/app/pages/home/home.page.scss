@@ -1,0 +1,128 @@
+ion-toolbar {
+  ion-title {
+    color: #fff;
+    font-family: 'Poppins';
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 500;
+  }
+}
+
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 45%;
+  transform: translateY(-50%);
+
+  img {
+    background: var(--color-yellow);
+    padding: 10px;
+    border-radius: 15px;
+    width: 40%;
+  }
+
+  ion-button {
+    --background: var(--color-yellow);
+    --border-radius: 8px;
+    color: #fff;
+    width: 70%;
+    height: 58px;
+    flex-shrink: 0;
+    font-family: 'Poppins';
+
+    margin-top: 16%;
+  }
+}
+
+.person-icon {
+  color: var(--color-yellow);
+  font-size: 30px;
+}
+
+ion-icon {
+  font-size: 20px;
+  margin-left: 5px;
+  --ion-color-base: #fff !important;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.texts {
+  position: relative;
+  bottom: 50px;
+}
+
+#container strong {
+  color: var(--color-yellow);
+  text-align: center;
+  font-family: 'Poppins';
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+#container p {
+  color: #B9B9B9;
+  text-align: center;
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0px 30px;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.data {
+  margin: 0 auto;
+  width: 330px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: rgba(59, 59, 59, 0.78);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  color: #fff;
+  margin-top: 15px;
+  padding: 10px;
+
+  ion-label {
+    color: #D9D9D9;
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  ion-text {
+    color: #D9D9D9;
+    text-align: justify;
+    font-family: 'Poppins';
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: underline;
+
+    a {
+      color: #D9D9D9;
+
+    }
+  }
+}

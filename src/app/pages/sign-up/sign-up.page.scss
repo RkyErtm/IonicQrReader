@@ -1,0 +1,84 @@
+ion-toolbar {
+    --background: white;
+
+    ion-back-button {
+        color: var(--color-yellow) !important;
+    }
+}
+
+ion-select {
+    --padding-start: 10px;
+}
+
+ion-note {
+    color: var(--ion-color-danger);
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+ion-content {
+    .labels {
+        display: flex;
+        flex-direction: column;
+        height: 90px;
+        margin-top: 25px;
+    }
+
+    .welcome_lbl {
+        font-size: 24px;
+        font-family: "Poppins";
+        color: #d5cfcb;
+    }
+
+    .simp_lbl {
+        margin-top: 24px;
+        letter-spacing: 1.2;
+        margin-bottom: 54px;
+        color: #d5cfcb;
+
+        span {
+            color: var(--color-yellow) !important;
+        }
+    }
+
+    ion-item {
+        border: 1px solid #d5cfcb;
+        --background: #f7f7f7;
+        border-radius: 10px;
+        margin-top: 24px;
+        margin-bottom: 3px;
+
+        ion-input {
+            --padding-start: 10px;
+            font-family: "Poppins";
+            height: 50px;
+        }
+    }
+
+    .or_lbl {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    ion-button {
+        margin-top: 10%;
+
+        ion-icon {
+            position: absolute;
+            left: 10px;
+        }
+    }
+
+    .fb_btn {
+        --background: #4a61a7;
+    }
+
+    .gp_btn {
+        --background: #54a0f4;
+    }
+
+    .block_btn {
+        --background: var(--color-yellow);
+    }
+}

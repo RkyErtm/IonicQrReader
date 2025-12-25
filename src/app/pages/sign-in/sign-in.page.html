@@ -1,0 +1,67 @@
+<!--
+  Authors : bunchdevelopers (Rahul Jograna)
+  Website : https://bunchdevelopers.com/
+  App Name : ionic6Template Pack
+  This App Template Source code is licensed as per the
+  terms found in the Website https://bunchdevelopers.com/license
+  Copyright and Good Faith Purchasers © 2021-present bunchdevelopers.
+ -->
+<ion-content class="ion-padding">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Geri" icon="caret-back" defaultHref="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+  <div class="labels">
+    <ion-label class="welcome_lbl">Hoşgeldin!</ion-label>
+
+    <ion-label class="simp_lbl">Mail adresi ve şifrenizi giriniz</ion-label>
+  </div>
+
+  <form [formGroup]="loginForm" novalidate>
+    <ion-item lines="none">
+      <ion-icon name="person-outline" color="medium"></ion-icon>
+      <ion-input formControlName="email" type="text" placeholder="E-posta"></ion-input>
+    </ion-item>
+    <div
+      *ngIf="(submitted || loginForm.get('email')?.dirty) && (loginForm.get('email')?.hasError('required') || loginForm.get('email')?.hasError('email'))"
+      class="alert">
+      <ion-note *ngIf="loginForm.get('email')?.hasError('required')">
+        E-posta zorunludur
+      </ion-note>
+      <ion-note *ngIf="loginForm.get('email')?.hasError('email')">
+        E-posta formatında giriniz
+      </ion-note>
+    </div>
+
+    <ion-item lines="none">
+      <ion-icon name="lock-open-outline" color="medium"></ion-icon>
+      <ion-input [type]="passwordFieldType" minlength="6" formControlName="password" type="password" placeholder="Şifre"
+        #passwordInput></ion-input>
+      <ion-icon slot="end" class="eye on" (click)="togglePasswordVisibility()" *ngIf="passwordFieldType === 'text'"
+        name="eye-outline" color="medium"></ion-icon>
+      <ion-icon slot="end" class="eye off" *ngIf="passwordFieldType === 'password'" (click)="togglePasswordVisibility()"
+        name="eye-off-outline" color="medium"></ion-icon>
+    </ion-item>
+    <div *ngIf="submitted " class="alert">
+      <ion-note *ngIf="submitted && loginForm.get('password')?.hasError('required')">
+        Şifre (tekrar) zorunludur
+      </ion-note>
+      <ion-note *ngIf="submitted && loginForm.get('password')?.hasError('minlength')">
+        En az 6 karakter giriniz
+      </ion-note>
+    </div>
+
+  </form>
+
+
+  <div class="forgot" style="visibility: hidden;">
+    <ion-label (click)="onForgotPassword()">Şifremi Unuttum ?</ion-label>
+  </div>
+
+  <ion-button (click)="login()" type="submit" expand="block" mode="ios" class="block_btn">
+    Giriş Yap
+  </ion-button>
+  <ion-label class="sign_in_lbl">Hesabın Yok mu? <span routerLink="/sign-up">Kayıt Ol</span></ion-label>
+</ion-content>
